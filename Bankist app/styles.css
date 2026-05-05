@@ -1,6 +1,7 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -70,7 +71,7 @@ main {
   top: 5%;
   left: 15%;
 
-  opacity: 100;
+  opacity: 1;
   transition: all 1s;
 }
 
@@ -100,7 +101,8 @@ main {
 .transactions {
   background-color: #fff;
   border-radius: 1rem;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 60%;
   height: 61vh;
   position: relative;
@@ -132,11 +134,11 @@ main {
   color: #666;
 }
 
-.transaction-type_deposit {
+.transaction-type--deposit {
   background-image: linear-gradient(to top left, #39b385, #9be15d);
 }
 
-.transaction-type_withdrawal {
+.transaction-type--withdrawal {
   background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 

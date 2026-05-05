@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" , href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
       rel="stylesheet"
@@ -14,15 +14,15 @@
     <!--Navigation panel with login functionality-->
     <nav>
       <h2 class="label-header">Log in to get started</h2>
-      <img class="logo" src="logo.png" alt="bussiness logo" />
+      <img class="logo" src="logo.png" alt="business logo" />
       <form class="login">
         <input class="user-login user-name" type="text" placeholder="user" />
         <input class="user-login user-pin" type="password" placeholder="PIN" />
-        <button class="btn-login">&rarr;</button>
+        <button class="btn-login" type="button">&rarr;</button>
       </form>
     </nav>
 
-    <!--Main functionality of the app, devided in sections-->
+    <!--Main functionality of the app, divided into sections-->
     <main class="app">
       <section class="balance">
         <p>
@@ -33,14 +33,18 @@
       </section>
       <section class="transactions">
         <div class="transaction-row">
-            <div class="transaction-type transaction-type_deposit">2 deposit</div>
-            <div class="transaction-date">24/01/2026</div>
-            <div class="transaction-value">4 000€</div>
+          <div class="transaction-type transaction-type--deposit">
+            2 deposit
+          </div>
+          <div class="transaction-date">24/01/2026</div>
+          <div class="transaction-value">4 000€</div>
         </div>
         <div class="transaction-row">
-            <div class="transaction-type transaction-type_withdrawal">1 withdrawal</div>
-            <div class="transaction-date">20/01/2026</div>
-            <div class="transaction-value">1 000€</div>
+          <div class="transaction-type transaction-type--withdrawal">
+            1 withdrawal
+          </div>
+          <div class="transaction-date">20/01/2026</div>
+          <div class="transaction-value">1 000€</div>
         </div>
       </section>
       <section class="other-action">
@@ -76,7 +80,7 @@
               <input
                 class="input-other-action"
                 id="input-loan-amount"
-                type="text"
+                type="number"
               />
               <label class="label-input" for="input-loan-amount">Amount</label>
             </div>
@@ -97,7 +101,7 @@
               >
             </div>
             <div class="user-verification">
-              <input class="input-other-action" id="input-Pin" type="text" />
+              <input class="input-other-action" id="input-pin" type="text" />
               <label class="label-input" for="input-Pin">Confirm PIN</label>
             </div>
             <button class="btn-other-function">&rarr;</button>
@@ -108,7 +112,8 @@
       <section class="summary">
         <div class="income">IN <span class="in-value">27 035,20 €</span></div>
         <div class="expense">OUT <span class="out-value">1082,61 €</span></div>
-        <div class="interest">INT <span class="in-value">323,46 €</span></div>↓ SORT</div>
+        <div class="interest">INT <span class="in-value">323,46 €</span></div>
+        <button class="button-sort" type="button">↓ SORT</button>
       </section>
     </main>
   </body>
