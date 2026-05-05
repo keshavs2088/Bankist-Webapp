@@ -1,0 +1,276 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  background-color: #f3f3f3;
+  height: 100vh;
+  padding: 1%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 12vh;
+  font-size: 80%;
+  padding: 0 2%;
+}
+
+.label-header {
+  font-weight: 500;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  height: 70%;
+}
+
+form {
+  max-width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-login {
+  font-family: inherit;
+  color: #444;
+  border: none;
+  font-size: 130%;
+  font-weight: 400;
+  text-align: center;
+  max-width: 30%;
+  border-radius: 50px;
+  margin-right: 2%;
+  padding: 2% 5%;
+}
+
+.user-login::placeholder {
+  color: #c6c5c5;
+}
+
+input:focus {
+  outline-color: rgb(211, 208, 208);
+}
+.btn-login {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+main {
+  width: 70%;
+  height: 80vh;
+  position: relative;
+  top: 5%;
+  left: 15%;
+
+  opacity: 100;
+  transition: all 1s;
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.label-current-balance {
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.label-current-date {
+  font-family: inherit;
+  color: #888;
+}
+
+#balance {
+  font-family: inherit;
+  font-size: 3rem;
+}
+
+.transactions {
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: scroll;
+  width: 60%;
+  height: 61vh;
+  position: relative;
+  top: 2.5%;
+  margin: 2.5% 0 4% 0;
+}
+
+.transaction-row {
+  display: flex;
+  padding: 5%;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.transaction-type {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.1rem 1rem;
+  border-radius: 10rem;
+  margin-right: 2rem;
+}
+
+.transaction-date {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: small;
+  color: #666;
+}
+
+.transaction-type_deposit {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.transaction-type_withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.transaction-value {
+  margin-left: auto;
+  font-size: large;
+}
+
+.other-action {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  position: absolute;
+  top: 17%;
+  left: 60%;
+}
+
+.transfer-money {
+  background: linear-gradient(to top left, #ffb003, #ffcb03);
+  max-height: 20%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 2% 0 2% 2%;
+  padding: 8%;
+  font-weight: bold;
+}
+.transfer {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
+.label-input {
+  font-weight: normal;
+  padding-top: 5%;
+  font-size: small;
+}
+
+.transfer-input {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-other-action {
+  border-radius: 10px;
+  width: 100%;
+  height: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.btn-other-function {
+  height: 50%;
+  width: 15%;
+  border: none;
+  border-radius: 10px;
+}
+
+.loan {
+  background: linear-gradient(to top left, #39b385, #9be15d);
+  max-height: 20%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 2% 0 2% 2%;
+  padding: 8%;
+  font-weight: bold;
+}
+
+.loan-amount {
+  width: 50%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
+.loan-request {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+}
+
+#input-loan-amount {
+  width: 100%;
+  max-height: 100%;
+}
+
+.btn-loan {
+  width: 25%;
+}
+
+.close-account {
+  background: linear-gradient(to top left, #e52a5a, #ff585f);
+  max-height: 20%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 2% 0 2% 2%;
+  padding: 8%;
+  font-weight: bold;
+}
+
+.user-verification {
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+  align-items: center;
+}
+
+.account-details {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  max-width: 60%;
+}
+
+.in-value {
+  color: #66c873;
+  font-size: 1.5rem;
+}
+
+.out-value {
+  color: #f5465d;
+  font-size: 1.5rem;
+}

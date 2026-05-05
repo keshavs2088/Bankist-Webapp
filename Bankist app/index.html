@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" , href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bankist</title>
+  </head>
+  <body>
+    <!--Navigation panel with login functionality-->
+    <nav>
+      <h2 class="label-header">Log in to get started</h2>
+      <img class="logo" src="logo.png" alt="bussiness logo" />
+      <form class="login">
+        <input class="user-login user-name" type="text" placeholder="user" />
+        <input class="user-login user-pin" type="password" placeholder="PIN" />
+        <button class="btn-login">&rarr;</button>
+      </form>
+    </nav>
+
+    <!--Main functionality of the app, devided in sections-->
+    <main class="app">
+      <section class="balance">
+        <p>
+          <span class="label-current-balance">Current balance</span><br />
+          <span class="label-current-date">As of 04/05/2026, 18:50</span>
+        </p>
+        <div id="balance">25 952,59 €</div>
+      </section>
+      <section class="transactions">
+        <div class="transaction-row">
+            <div class="transaction-type transaction-type_deposit">2 deposit</div>
+            <div class="transaction-date">24/01/2026</div>
+            <div class="transaction-value">4 000€</div>
+        </div>
+        <div class="transaction-row">
+            <div class="transaction-type transaction-type_withdrawal">1 withdrawal</div>
+            <div class="transaction-date">20/01/2026</div>
+            <div class="transaction-value">1 000€</div>
+        </div>
+      </section>
+      <section class="other-action">
+        <div class="transfer-money">
+          <div class="label-transfer">Transfer money</div>
+          <div class="transfer">
+            <div class="transfer-input">
+              <input
+                class="input-other-action"
+                id="input-transfer-to"
+                type="text"
+              />
+              <label class="label-input" for="input-transfer-to"
+                >Transfer to</label
+              >
+            </div>
+            <div class="transfer-input">
+              <input
+                class="input-other-action"
+                id="input-amount"
+                type="number"
+              />
+              <label class="label-input" for="input-amount">Amount</label>
+            </div>
+
+            <button class="btn-other-function">&rarr;</button>
+          </div>
+        </div>
+        <div class="loan">
+          <div class="label-loan">Request loan</div>
+          <div class="loan-amount">
+            <div class="loan-request">
+              <input
+                class="input-other-action"
+                id="input-loan-amount"
+                type="text"
+              />
+              <label class="label-input" for="input-loan-amount">Amount</label>
+            </div>
+            <button class="btn-loan btn-other-function">&rarr;</button>
+          </div>
+        </div>
+        <div class="close-account">
+          <div class="label-close-account">Close account</div>
+          <div class="account-details">
+            <div class="user-verification">
+              <input
+                class="input-other-action"
+                id="input-username"
+                type="text"
+              />
+              <label class="label-input" for="input-username"
+                >Confirm user</label
+              >
+            </div>
+            <div class="user-verification">
+              <input class="input-other-action" id="input-Pin" type="text" />
+              <label class="label-input" for="input-Pin">Confirm PIN</label>
+            </div>
+            <button class="btn-other-function">&rarr;</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary">
+        <div class="income">IN <span class="in-value">27 035,20 €</span></div>
+        <div class="expense">OUT <span class="out-value">1082,61 €</span></div>
+        <div class="interest">INT <span class="in-value">323,46 €</span></div>↓ SORT</div>
+      </section>
+    </main>
+  </body>
+</html>
