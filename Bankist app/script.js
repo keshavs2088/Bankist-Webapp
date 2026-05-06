@@ -69,7 +69,7 @@ const transferTo = document.querySelector("#input-transfer-to");
 const transferAmount = document.querySelector("#input-amount");
 const loanAmount = document.querySelector("#input-loan-amount");
 const confirmCloseUser = document.querySelector("#input-username");
-const confirmClosePin = document.querySelector("#input-Pin");
+const confirmClosePin = document.querySelector("#input-pin");
 
 const loginButton = document.querySelector(".login");
 const transferButton = document.querySelector(".btn-transfer");
@@ -244,4 +244,19 @@ transferButton.addEventListener("click", function (e) {
 
   transferTo.value = transferAmount.value = "";
   document.activeElement.blur();
+});
+
+loanButton.addEventListener("click", function () {});
+
+closeAccountButton.addEventListener("click", function () {
+  if (
+    confirmCloseUser.value === currentUser.userName &&
+    Number(confirmClosePin.value) === currentUser.pin
+  ) {
+    accounts.splice(accounts.indexOf(currentUser), 1);
+    console.log(accounts);
+    mainApp.style.opacity = 0;
+    welcomeMessage.textContent = `Log in to get started`;
+  }
+  confirmCloseUser.value = confirmClosePin.value = "";
 });
