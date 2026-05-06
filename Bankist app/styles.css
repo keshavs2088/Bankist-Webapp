@@ -64,14 +64,14 @@ input:focus {
   cursor: pointer;
 }
 
-main {
+.app {
   width: 70%;
   height: 80vh;
   position: relative;
   top: 5%;
   left: 15%;
 
-  opacity: 1;
+  opacity: 0;
   transition: all 1s;
 }
 
@@ -193,6 +193,9 @@ main {
   height: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.4);
+  font-size: 100%;
+  font-weight: 100;
+  text-align: center;
 }
 
 .btn-other-function {
@@ -274,5 +277,10 @@ main {
 
 .out-value {
   color: #f5465d;
+  font-size: 1.5rem;
+}
+
+.int-value {
+  color: #66c873;
   font-size: 1.5rem;
 }

@@ -18,7 +18,7 @@
       <form class="login">
         <input class="user-login user-name" type="text" placeholder="user" />
         <input class="user-login user-pin" type="password" placeholder="PIN" />
-        <button class="btn-login" type="button">&rarr;</button>
+        <button class="btn-login" type="submit">&rarr;</button>
       </form>
     </nav>
 
@@ -29,7 +29,7 @@
           <span class="label-current-balance">Current balance</span><br />
           <span class="label-current-date">As of 04/05/2026, 18:50</span>
         </p>
-        <div id="balance">25 952,59 €</div>
+        <div id="balance">5 952,59 €</div>
       </section>
       <section class="transactions">
         <div class="transaction-row">
@@ -70,7 +70,7 @@
               <label class="label-input" for="input-amount">Amount</label>
             </div>
 
-            <button class="btn-other-function">&rarr;</button>
+            <button class="btn-transfer btn-other-function">&rarr;</button>
           </div>
         </div>
         <div class="loan">
@@ -101,19 +101,21 @@
               >
             </div>
             <div class="user-verification">
-              <input class="input-other-action" id="input-pin" type="text" />
+              <input class="input-other-action" id="input-pin" type="number" />
               <label class="label-input" for="input-Pin">Confirm PIN</label>
             </div>
-            <button class="btn-other-function">&rarr;</button>
+            <button class="btn-close_account btn-other-function">&rarr;</button>
           </div>
         </div>
       </section>
 
       <section class="summary">
-        <div class="income">IN <span class="in-value">27 035,20 €</span></div>
-        <div class="expense">OUT <span class="out-value">1082,61 €</span></div>
-        <div class="interest">INT <span class="in-value">323,46 €</span></div>
-        <button class="button-sort" type="button">↓ SORT</button>
+        <div class="income">IN <span class="in-value">0 €</span></div>
+        <div class="expense">OUT <span class="out-value">0 €</span></div>
+        <div class="interest">INT <span class="int-value">0 €</span></div>
+        <button class="button-sort btn-other-function" type="button">
+          ↓ SORT
+        </button>
       </section>
     </main>
     <script src="script.js"></script>
