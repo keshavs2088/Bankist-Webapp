@@ -75,6 +75,7 @@ const loginButton = document.querySelector(".login");
 const transferButton = document.querySelector(".btn-transfer");
 const loanButton = document.querySelector(".btn-loan");
 const closeAccountButton = document.querySelector(".btn-close_account");
+const sortButton = document.querySelector(".button-sort");
 
 const welcomeMessage = document.querySelector(".label-header");
 const currentDate = document.querySelector(".label-current-date");
@@ -82,6 +83,7 @@ const balanceUI = document.querySelector("#balance");
 const inSummary = document.querySelector(".in-value");
 const outSummary = document.querySelector(".out-value");
 const intSummary = document.querySelector(".int-value");
+const logoutTimer = document.querySelector(".logout-timer");
 
 //FUNCTIONS
 const createUsername = function (accounts) {
@@ -95,7 +97,7 @@ const createUsername = function (accounts) {
 
 const updateUI = function () {
   //update transactions
-  updateTransactions();
+  updateTransactions(sort);
   //update current balance
   updateBalance();
   //update the balance summary
@@ -124,7 +126,8 @@ const formatCurrency = function (amount) {
   }).format(amount);
 };
 
-const updateTransactions = function () {
+const updateTransactions = function (sort) {
+  console.log(sort);
   transactionsUI.innerHTML = "";
   let displayDate;
   const today = new Date();
@@ -136,8 +139,19 @@ const updateTransactions = function () {
     currentUser.movementsDates.at(i),
   ]);
 
+  //sorted Array based on the sort value
+  let movementsSorted;
+  let movementsCopy = transacWithDate.slice();
+  let movementsReverse = movementsCopy.reverse();
+
+  sort
+    ? (movementsSorted = movementsReverse)
+    : (movementsSorted = transacWithDate);
+
+  console.log(transacWithDate);
+
   //traverse the array to display transactions
-  transacWithDate.map((value, i) => {
+  movementsSorted.map((value, i) => {
     let type = value.at(0) > 0 ? "deposit" : "withdrawal";
 
     //format date into dd/mm/yyyy
@@ -185,13 +199,38 @@ const updateSummary = function () {
   intSummary.textContent = formatCurrency(interest);
 };
 
+const appLogoutTimer = function () {
+  let time = 300;
+
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, "0");
+    const sec = String(time % 60).padStart(2, "0");
+
+    logoutTimer.textContent = `${min}:${sec}`;
+
+    if (time === 0) {
+      mainApp.style.opacity = 0;
+      welcomeMessage.textContent = `Log in to get started`;
+      clearInterval(timer);
+    }
+    time--;
+  };
+
+  tick();
+  const timer = setInterval(tick, 1000);
+  //   return timer;
+};
+
 //SEQUENTIAL CODE
 let currentUser;
+let sort = false;
 const name = createUsername(accounts);
 
 //EVENT LISTENERS
 loginButton.addEventListener("submit", function (e) {
   e.preventDefault();
+  //start timer
+  appLogoutTimer();
   //check the account that matches the username
   accounts.forEach((account) => {
     if (
@@ -224,6 +263,7 @@ loginButton.addEventListener("submit", function (e) {
 });
 
 transferButton.addEventListener("click", function (e) {
+  appLogoutTimer();
   let transferAccount;
   accounts.forEach((account) => {
     if (
@@ -233,7 +273,11 @@ transferButton.addEventListener("click", function (e) {
       transferAccount = account;
   });
 
-  if (transferAmount.value < currentUser.balance && transferAmount.value > 0) {
+  if (
+    transferAmount.value < currentUser.balance &&
+    transferAmount.value > 0 &&
+    transferAccount
+  ) {
     transferAccount.movements.push(Number(transferAmount.value));
     const date = new Date();
     transferAccount.movementsDates.push(date);
@@ -241,12 +285,26 @@ transferButton.addEventListener("click", function (e) {
     currentUser.movementsDates.push(date);
     updateUI();
   }
-
   transferTo.value = transferAmount.value = "";
   document.activeElement.blur();
 });
 
-loanButton.addEventListener("click", function () {});
+loanButton.addEventListener("click", function () {
+  const amount = Math.floor(loanAmount.value);
+  if (
+    amount > 0 &&
+    currentUser.movements.some((value) => value >= amount * 0.1)
+  ) {
+    setTimeout(function () {
+      currentUser.movements.push(Number(amount));
+      console.log(currentUser.movements);
+      currentUser.movementsDates.push(new Date());
+      updateUI();
+    }, 3000);
+  }
+  loanAmount.value = "";
+  document.activeElement.blur();
+});
 
 closeAccountButton.addEventListener("click", function () {
   if (
@@ -259,4 +317,10 @@ closeAccountButton.addEventListener("click", function () {
     welcomeMessage.textContent = `Log in to get started`;
   }
   confirmCloseUser.value = confirmClosePin.value = "";
+});
+
+sortButton.addEventListener("click", function () {
+  sort ? (sort = false) : (sort = true);
+  console.log(sort);
+  updateTransactions(sort);
 });

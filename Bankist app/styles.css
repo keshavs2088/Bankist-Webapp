@@ -284,3 +284,16 @@ input:focus {
   color: #66c873;
   font-size: 1.5rem;
 }
+
+.button-sort {
+  margin: 1%;
+}
+
+.timer {
+  position: absolute;
+  left: 75%;
+}
+
+.logout-timer {
+  font-weight: bold;
+}
