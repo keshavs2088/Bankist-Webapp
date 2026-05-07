@@ -164,7 +164,7 @@ const updateTransactions = function (sort) {
     );
     if (daysPassed === 0) displayDate = "Today";
     if (daysPassed > 0 && daysPassed < 7)
-      displayDate = `${daysPassed + 1} days ago`;
+      displayDate = `${daysPassed} days ago`;
 
     const html = `<div class="transaction-row">
           <div class="transaction-type transaction-type--${type}">
@@ -218,11 +218,12 @@ const appLogoutTimer = function () {
 
   tick();
   const timer = setInterval(tick, 1000);
-  //   return timer;
+  return timer;
 };
 
 //SEQUENTIAL CODE
 let currentUser;
+let timer;
 let sort = false;
 const name = createUsername(accounts);
 
@@ -230,7 +231,8 @@ const name = createUsername(accounts);
 loginButton.addEventListener("submit", function (e) {
   e.preventDefault();
   //start timer
-  appLogoutTimer();
+  if (timer) clearInterval(timer);
+  timer = appLogoutTimer();
   //check the account that matches the username
   accounts.forEach((account) => {
     if (
@@ -238,7 +240,7 @@ loginButton.addEventListener("submit", function (e) {
       Number(loginPin.value) === account.pin
     ) {
       currentUser = account;
-      mainApp.style.opacity = 100;
+      mainApp.style.opacity = 1;
       welcomeMessage.textContent = `Good Day, ${account.owner.split(" ").at(0)}!`;
     }
   });
@@ -263,15 +265,13 @@ loginButton.addEventListener("submit", function (e) {
 });
 
 transferButton.addEventListener("click", function (e) {
-  appLogoutTimer();
-  let transferAccount;
-  accounts.forEach((account) => {
-    if (
+  if (timer) clearInterval(timer);
+  timer = appLogoutTimer();
+  const transferAccount = accounts.find(
+    (account) =>
       account.userName === transferTo.value &&
-      transferTo.value !== currentUser.userName
-    )
-      transferAccount = account;
-  });
+      transferTo.value !== currentUser.userName,
+  );
 
   if (
     transferAmount.value < currentUser.balance &&
@@ -287,6 +287,7 @@ transferButton.addEventListener("click", function (e) {
   }
   transferTo.value = transferAmount.value = "";
   document.activeElement.blur();
+  appLogoutTimer();
 });
 
 loanButton.addEventListener("click", function () {
@@ -304,6 +305,8 @@ loanButton.addEventListener("click", function () {
   }
   loanAmount.value = "";
   document.activeElement.blur();
+  if (timer) clearInterval(timer);
+  timer = appLogoutTimer();
 });
 
 closeAccountButton.addEventListener("click", function () {
@@ -317,10 +320,14 @@ closeAccountButton.addEventListener("click", function () {
     welcomeMessage.textContent = `Log in to get started`;
   }
   confirmCloseUser.value = confirmClosePin.value = "";
+  if (timer) clearInterval(timer);
+  timer = appLogoutTimer();
 });
 
 sortButton.addEventListener("click", function () {
   sort ? (sort = false) : (sort = true);
   console.log(sort);
   updateTransactions(sort);
+  if (timer) clearInterval(timer);
+  timer = appLogoutTimer();
 });
