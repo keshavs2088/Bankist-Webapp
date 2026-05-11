@@ -1,6 +1,6 @@
 # Bankist App
 
-A simple banking web app built with HTML, CSS, and JavaScript.
+A simple banking web app built with HTML, CSS, and JavaScript. 
 
 ## Features
 
@@ -38,3 +38,4 @@ Note:
 
 This is a front-end practice project.
 Data is stored in JavaScript only and resets when the page reloads.
+This project is inspired from the Udemy course by Jonas Schmedtmann - "The modern JavaScript course for everyone!"
