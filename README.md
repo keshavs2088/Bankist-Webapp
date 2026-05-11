@@ -38,4 +38,4 @@ Note:
 
 This is a front-end practice project.
 Data is stored in JavaScript only and resets when the page reloads.
-This project is inspired from the Udemy course by Jonas Schmedtmann - "The modern JavaScript course for everyone!"
+This project is inspired from the Udemy course by Jonas Schmedtmann - "The modern JavaScript course for everyone!" but fully implemented and customized by me for learning and practice.
